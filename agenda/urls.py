@@ -17,9 +17,13 @@ from django.contrib import admin
 from django.urls import path
 from core import  views
 from django.views.generic import  RedirectView
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('agenda/', views.lista_eventos),
     #path('', views.index),
     path('', RedirectView.as_view(url='/agenda/')),
+    path('login/', views.login_user),
+    path('login/submit', views.login_submit),
+    path('logout/', views.logout_user)
 ]
