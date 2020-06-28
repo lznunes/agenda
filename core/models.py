@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 class Evento(models.Model):
     titulo = models.CharField(max_length=200)
     descricao = models.TextField(blank=True, null=True)
+    local = models.TextField(blank=True, null=True, max_length=50)
     data_evento = models.DateField(verbose_name='Data do Evento', null=True)
     data_criacao = models.DateField(auto_now=True, null=True)
     usuario = models.ForeignKey(User, on_delete=models.CASCADE)

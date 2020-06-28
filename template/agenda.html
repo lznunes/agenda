@@ -7,7 +7,7 @@
     <h2>Compromissos</h2>
     <ul style="font-size: 18px">
     {%for evento in eventos%}
-        <li>{{evento.titulo}} - {{evento.get_data_evento}}</li>
+        <li>{{evento.titulo}} - {{evento.get_data_evento}} - {{evento.local}}</li>
     {%endfor%}
     </ul>
 {% endblock %}
