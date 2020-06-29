@@ -6,27 +6,28 @@
             <h2>Novo Evento</h2>
             <label>Título:</label>
             <br>
-            <input type="tex" name="titulo" size="23">
+            <input type="tex" name="titulo" size="23" value="{{ evento.titulo }}">
             <br>
             <label>Data do evento:</label>
             <br>
-            <input type="date" name="data_evento">
+            <input type="datetime-local" name="data_evento" value="{{ evento.get_data_input_evento }}">
             <br>
             <label>Local:</label>
             <br>
-            <input type="text" name="local" size="23">
+            <input type="text" name="local" size="23" value=" {{ evento.local }}">
             <br>
             <label>Descrição:</label>
             <br>
-            <textarea name="descricao" cols="24" rows="10"></textarea>
+            <textarea name="descricao" cols="24" rows="10">{{ evento.descricao }}</textarea>
             <br>
             <br>
             <button type="submit">Salvar</button>
-            <a href="/">
-                <button type="cancel">Cancelar</button>
-            </a>
-        </div>
+
+            <a href="/"><button type="button">Cancelar</button></a>
+
+    </div>
 </form>
+
 
     {%for message in messages%}
         <div align="center"><strong>Erro:</strong>{{ message }}</div>
