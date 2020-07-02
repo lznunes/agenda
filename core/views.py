@@ -52,12 +52,18 @@ def submit_evento(request):
         local = request.POST.get('local')
         descricao = request.POST.get('descricao')
         usuario = request.user
-        Evento.objects.create(titulo=titulo,
-                              data_evento=data_evento,
-                              local=local,
-                              descricao=descricao,
-                              usuario=usuario
-                              )
+        id_evento = request.POST.get('id_evento')
+        if id_evento:
+            Evento.objects.filter(id=id_evento).update(titulo=titulo,
+                                                        data_evento=data_evento,
+                                                        local=local,
+                                                        descricao=descricao)
+        else:
+            Evento.objects.create(titulo=titulo,
+                                  data_evento=data_evento,
+                                  local=local,
+                                  descricao=descricao,
+                                  usuario=usuario)
     return redirect('/')
 
 @login_required(login_url='/login')
